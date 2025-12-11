@@ -1,0 +1,187 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffd4e5 0%, #ffe8f0 50%, #fff5f8 100%);
+            padding: 20px;
+        }
+
+        .book-container {
+            perspective: 1500px;
+            position: relative;
+        }
+
+        .book {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            transform-style: preserve-3d;
+        }
+
+        .spread {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: opacity 0.5s ease;
+        }
+
+        .spread.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .page {
+            width: 400px;
+            height: 500px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-shadow: 0 5px 30px rgba(255, 105, 180, 0.2);
+            position: relative;
+        }
+
+        .page-left {
+            border-radius: 15px 0 0 15px;
+            border-right: 1px solid #ffd4e5;
+        }
+
+        .page-right {
+            border-radius: 0 15px 15px 0;
+            border-left: 1px solid #ffd4e5;
+        }
+
+        /* Cover */
+        .cover-page {
+            background: linear-gradient(135deg, #ffb6d9 0%, #ffd4e5 100%);
+        }
+
+        .cover-page img {
+            width: 250px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.3));
+        }
+
+        .cover-page h2 {
+            color: #ff69b4;
+            font-size: 26px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Back Cover */
+        .back-cover {
+            background: linear-gradient(135deg, #ffd4e5 0%, #ffb6d9 100%);
+        }
+
+        .back-cover img {
+            width: 250px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.3));
+        }
+
+        .back-cover h2 {
+            color: #ff69b4;
+            font-size: 22px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Content pages */
+        .page img {
+            width: 220px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .text-content {
+            color: #ff69b4;
+            line-height: 1.8;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .text-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            position: absolute;
+            bottom: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ff69b4, #ffb6d9);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            font-family: 'Georgia', serif;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 900px) {
+            .book {
+                width: 90vw;
+                height: 60vw;
+                max-height: 500px;
+            }
+
+            .page {
+                width: 45vw;
+                height: 60vw;
+                max-height: 500px;
+                padding: 20px;
+            }
+
+            .cover-page img, .back-cover img {
+                width: 150px;
+            }
+
+            .page img {
+                width: 130px;
+            }
+
+            .text-content {
+                font-size: 13px;
+            }
+
+            .cover-page h2, .back-cover h2 {
+                font-size: 18px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }

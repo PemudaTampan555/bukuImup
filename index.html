@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beloved Girlfriend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="book-container">
+        <div class="book" id="book">
+            <!-- Spread 0: Cover -->
+            <div class="spread" id="spread-0">
+                <div class="page page-left" style="background: #ffeef5;"></div>
+                <div class="page page-right cover-page">
+                    <img src="img/helloKitty1.jpg" alt="Wedding Hello Kitty">
+                    <h2>For My Beloved Girlfriend</h2>
+                    <div class="nav-buttons">
+                        <button onclick="nextSpread()">Buka Buku</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spread 1: Halaman 1-2 -->
+            <div class="spread hidden" id="spread-1">
+                <div class="page page-left">
+                    <div class="text-content">
+                        <p>Hay sayaaaang, hehe. Happy 3rd mensive.</p>
+                        <p>We've been through so many challenges before, and it feels good that we've made it past all of them. I'm really grateful to be in this relationship with you, and even now I still can't believe we're actually together, hehe.</p>
+                        <p>You don't have to overthink about what the future will be like, because I promise I'll always be here for you.</p>
+                    </div>
+                </div>
+                <div class="page page-right">
+                    <img src="img/meng1.jpg" alt="Cat with Heart">
+                </div>
+                <div class="nav-buttons" style="left: 50%; transform: translateX(-50%);">
+                    <button onclick="prevSpread()">Kembali</button>
+                    <button onclick="nextSpread()">Halaman Berikutnya</button>
+                </div>
+            </div>
+
+            <!-- Spread 2: Halaman 3-4 -->
+            <div class="spread hidden" id="spread-2">
+                <div class="page page-left">
+                    <div class="text-content">
+                        <p>I will love you for as long as the earth dances around the sun, for every night that meets its dawn, you'll be my only one.</p>
+                        <p>And when the skies forget to glow, and time begins to fade, my love will linger in the stars, a promise softly made.</p>
+                        <p>And when the stars forget their light, I promise to love you still, until the end of endless night, and time itself stands ill.</p>
+                    </div>
+                </div>
+                <div class="page page-right">
+                    <img src="img/meng.jpg" alt="Cat with Flowers">
+                </div>
+                <div class="nav-buttons" style="left: 50%; transform: translateX(-50%);">
+                    <button onclick="prevSpread()">Kembali</button>
+                    <button onclick="nextSpread()">Tutup Buku</button>
+                </div>
+            </div>
+
+            <!-- Spread 3: Back Cover -->
+            <div class="spread hidden" id="spread-3">
+                <div class="page page-left back-cover">
+                    <img src="img/helloKitty.jpg" alt="Wedding Hello Kitty Pink">
+                    <h2>I love youuu more than anything sayangkuuuuu</h2>
+                    <div class="nav-buttons">
+                        <button onclick="prevSpread()">Kembali</button>
+                        <button onclick="resetBook()">Buka Lagi</button>
+                    </div>
+                </div>
+                <div class="page page-right" style="background: #ffeef5;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSpread = 0;
+        const totalSpreads = 4;
+
+        function showSpread(index) {
+            for (let i = 0; i < totalSpreads; i++) {
+                const spread = document.getElementById(`spread-${i}`);
+                if (i === index) {
+                    spread.classList.remove('hidden');
+                } else {
+                    spread.classList.add('hidden');
+                }
+            }
+            currentSpread = index;
+        }
+
+        function nextSpread() {
+            if (currentSpread < totalSpreads - 1) {
+                showSpread(currentSpread + 1);
+            }
+        }
+
+        function prevSpread() {
+            if (currentSpread > 0) {
+                showSpread(currentSpread - 1);
+            }
+        }
+
+        function resetBook() {
+            showSpread(0);
+        }
+
+        // Initialize
+        showSpread(0);
+    </script>
+</body>
+</html>
