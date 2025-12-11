@@ -150,38 +150,60 @@
             cursor: not-allowed;
         }
 
-        @media (max-width: 900px) {
-            .book {
-                width: 90vw;
-                height: 60vw;
-                max-height: 500px;
-            }
+        /* ============================
+   VERSI MOBILE (HP)
+   ============================ */
+@media (max-width: 768px) {
 
-            .page {
-                width: 45vw;
-                height: 60vw;
-                max-height: 500px;
-                padding: 20px;
-            }
+    .book {
+        width: 100vw;
+        height: auto;
+    }
 
-            .cover-page img, .back-cover img {
-                width: 150px;
-            }
+    .spread {
+        flex-direction: row;
+        transform: scale(0.85);
+        transform-origin: top center;
+    }
 
-            .page img {
-                width: 130px;
-            }
+    .page {
+        width: 48vw;
+        height: auto;
+        padding: 15px;
+        max-height: none;
+    }
 
-            .text-content {
-                font-size: 13px;
-            }
+    .page img {
+        width: 100%;
+        height: auto;
+        max-width: 150px;
+        margin-bottom: 10px;
+    }
 
-            .cover-page h2, .back-cover h2 {
-                font-size: 18px;
-            }
+    .text-content {
+        font-size: 12px;
+        line-height: 1.5;
+        padding: 5px;
+        word-wrap: break-word;
+    }
 
-            button {
-                padding: 10px 20px;
-                font-size: 13px;
-            }
-        }
+    .cover-page img, 
+    .back-cover img {
+        width: 140px;
+    }
+
+    .cover-page h2,
+    .back-cover h2 {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .nav-buttons {
+        bottom: 15px;
+        gap: 8px;
+    }
+}
